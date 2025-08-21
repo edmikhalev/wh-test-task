@@ -1,0 +1,12 @@
+.ui-button {
+	appearance: none;
+	padding: 8px 6px;
+	.ui-icon {
+		color: inherit;
+		font-size: 18px;
+	}
+
+	&:hover {
+		color: var(--primary-color-lighter);
+	}
+}
