@@ -1,15 +1,13 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import type { CalendarProps, CalendarEmits } from './types';
 import { useCalendar } from '../model/use-calendar';
-import { defaultLocale } from '../lib/locale/default';
+import { useLocale } from '../lib/locale/use-locale';
 
 const emit = defineEmits<CalendarEmits>();
 const props = defineProps<CalendarProps>();
 
 const { month, selectedDate, dateIsSelected, selectDate, prevMonth, nextMonth } = useCalendar(props.date);
-
-const calendarLocale = computed(() => props.locale || defaultLocale);
+const { locale: calendarLocale } = useLocale(props.locale);
 
 const selectDateHandle = (date: Date) => {
 	selectDate(date);

@@ -1,18 +1,53 @@
 # test-task-wh-calendar
 
-This template should help get you started developing with Vue 3 in Vite.
+Тестовое задание "Календарь" развернут на: https://edmikhalev.github.io/wh-test-task/
 
-## Recommended IDE Setup
+# Как использовать UiCalendar
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Импортировать компонент UiCalendar из features:
 
-## Type Support for `.vue` Imports in TS
+```TypeScript
+import { UiCalendar } from '@/features'
+```
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+Добавить компонент в шаблон
 
-## Customize configuration
+```html
+<UiCalendar :date="formattedDate" @select="selectHandle" :locale="{}" />
+```
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+```TypeScript
+
+/**
+Ожидает строку формат может быть любой удобоваримый для создания даты(валидации не добавлял)
+:date
+
+ * locale:
+ * ожидает объект формата(валидации и прочего нет,поэтому, для другого языка нужно заполнить short-поля полностью):
+	month: {
+		short: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн', 'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+		long: [
+			'Январь',
+			'Февраль',
+			'Март',
+			'Апрель',
+			'Май',
+			'Июнь',
+			'Июль',
+			'Август',
+			'Сентябрь',
+			'Октябрь',
+			'Ноябрь',
+			'Декабрь',
+		],
+	},
+	day: {
+		short: ['Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб', 'Вс'],
+		long: ['Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота', 'Воскресенье'],
+	},
+    @select - вернёт выбранную дату
+ * */
+```
 
 ## Project Setup
 
