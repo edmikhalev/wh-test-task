@@ -15,11 +15,9 @@ const selectDateHandler = (date: Date) => {
 
 <template>
 	<AppPage style="padding: 1rem">
-		<div style="padding: 1rem 0">
+		<div class="ui-card" style="padding: 1rem 0">
 			Выбрана дата: <b>{{ formattedDate }}</b>
 		</div>
 		<UiCalendar :date="formattedDate" @select="selectDateHandler" />
 	</AppPage>
 </template>
-
-<style scoped></style>
